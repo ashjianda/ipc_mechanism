@@ -91,6 +91,11 @@ int main() {
     shmdt(str_mem);
     shmdt(pid_mem);
 
+    // Destroy shared memory
+    shmctl(shmid_int, IPC_RMID, NULL);
+    shmctl(shmid_str, IPC_RMID, NULL);
+    shmctl(shmid_pid, IPC_RMID, NULL);
+
     printf("Good Bye World, I am Done!!\n");
 
     return 0;
